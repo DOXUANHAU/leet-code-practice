@@ -15,19 +15,27 @@ public class Longest_string {
     for (int i = 1; i <s.length(); i++) {
         if(head.contains( new Node(s.charAt(i)) ) ){
             head.add(new Node(s.charAt(i)));
-            head.removeUptoChar(s.charAt(i));
-            System.out.println("after removal [ "+s.charAt(i)+" ] :"+head.prettyNodePrint(head,""));
+            head.removeUptoChar(new Node(s.charAt(i)));
+            if(max >= head.length()){
+                continue;
+            }else{
+                max = head.length();
+            }
         }else{
             System.out.println("add ["+s.charAt(i)+"] "+head.prettyNodePrint(head,""));
             head.add(new Node(s.charAt(i)));
-            max++;
+            if(max >= head.length()){
+                continue;
+            }else{
+                max = head.length();        
+            }
         }
     };
   return max;
     }
     public static void main(String[] args) {
         Longest_string ls = new Longest_string();
-        String s = "abcabcbb";
+        String s = "pwwkew";
         System.out.println(ls.lengthOfLongestSubstring(s));
        
 }
@@ -36,7 +44,7 @@ public class Node {
     Node next;
     public Node() {
     }
-    public Node(char data, Longest_string.Node next) {
+    public Node(char data, Node next) {
         this.data = data;
         this.next = next;
     }
@@ -69,25 +77,20 @@ public class Node {
         }
     }
     // functinc to remove nodes from start to given character
-    public void removeUptoChar( char data) {
+    public void removeUptoChar( Node node) {
     if(this == null) return ;
     if(this.next == null) return ;
-    if(this.data != data){
+    if(this.data != node.data){
         this.data = this.next.data;
         this.next = this.next.next;
-        removeUptoChar(data);
+        removeUptoChar(node);
       }
-
-      if(this.data == data){
+    else {
         this.data = this.next.data;
-        if(this.next.next == null){
-            this.next = null;
-            return ;
-        }else{
+        this.next = this.next.next;
+        return;
 
-            this.next = this.next.next;
-            return ;
-        }
+     
       }
 
   
