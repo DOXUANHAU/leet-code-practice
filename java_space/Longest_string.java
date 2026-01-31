@@ -11,20 +11,14 @@ public class Longest_string {
  public int lengthOfLongestSubstring(String s) {
         if(s.length() == 0) return 0;
     Node head = new Node(s.charAt(0));
-    int max =0;
+    int max =1;
     for (int i = 1; i <s.length(); i++) {
-        if(head.contains(head, s.charAt(i)) ){
+        if(head.contains( new Node(s.charAt(i)) ) ){
             head.add(new Node(s.charAt(i)));
-            
-            // 
-            // 
-            
             head.removeUptoChar(s.charAt(i));
-            if(max < head.length()){
-                max = head.length();
-            }
-           
+            System.out.println("after removal [ "+s.charAt(i)+" ] :"+head.prettyNodePrint(head,""));
         }else{
+            System.out.println("add ["+s.charAt(i)+"] "+head.prettyNodePrint(head,""));
             head.add(new Node(s.charAt(i)));
             max++;
         }
@@ -50,14 +44,17 @@ public class Node {
         this.data = data;
     }
     // function to check this node contains a repeated character
-    public boolean contains(Node node , char c) {
+    public boolean contains(Node node ) {
         // if node checking is null return false
         if(node == null) return false;
         // if data matches return true
-        if(node.data == c) return true;
-        if(node.next != null) {
-            return contains(node.next , c);
-        }
+        return containsRecur(this,node);
+    }
+    // functionc to recursively check contains
+    public boolean containsRecur(Node node_check,Node data){
+        if(node_check == null) return false;
+        if(node_check.data == data.data) return true;
+        if(node_check.data != data.data)return containsRecur(node_check.next,data);
         return false;
     }
     // function to add a new node at the end
@@ -72,31 +69,28 @@ public class Node {
         }
     }
     // functinc to remove nodes from start to given character
-    public Node removeUptoChar( char data) {
-    // if(this == null) return ;
-    // if(this.next == null) return ;
-    // if(this.data != c){
-    //     this.data = this.next.data;
-    //     this.next = this.next.next;
-    //     removeUptoChar(c);
-    //   }
+    public void removeUptoChar( char data) {
+    if(this == null) return ;
+    if(this.next == null) return ;
+    if(this.data != data){
+        this.data = this.next.data;
+        this.next = this.next.next;
+        removeUptoChar(data);
+      }
 
-    //   if(this.data == c){
-    //     this.data = this.next.data;
-    //     this.next = this.next.next;
-    //     return ;
-    //   }
+      if(this.data == data){
+        this.data = this.next.data;
+        if(this.next.next == null){
+            this.next = null;
+            return ;
+        }else{
 
-    if(this == null) return null;
-    if(this.data != data)return this.next.removeUptoChar(data);
-    if(this.data == data){
-        if(this.next != null){
-        return this.next;
-    }else{
-        return null;
-    }
-    }
-    return null;
+            this.next = this.next.next;
+            return ;
+        }
+      }
+
+  
     }
     //functionc to get length of Node 
     public int length() {
