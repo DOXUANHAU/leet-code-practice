@@ -22,4 +22,10 @@ private void extendPalindrome(String s, int j, int k) {
 		lo = j + 1;
 		maxLen = k - j - 1;
 	}
-}}
+}
+
+ public boolean isPalindrome(int x) {
+        StringBuilder bui = new StringBuilder(""+x);
+       return bui.toString().equals(bui.reverse().toString());
+    }
+}
