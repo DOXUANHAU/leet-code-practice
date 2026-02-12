@@ -1,4 +1,4 @@
-public class Solution {
+public class longestPalindrome {
 private int lo, maxLen;
 
 public String longestPalindrome(String s) {
