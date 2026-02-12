@@ -4,38 +4,32 @@ public class Solution{
     // Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer
     public int myAtoi(String s){
         char[] chars = s.trim().toCharArray();
+        if(chars.length == 0) return 0;
         long result = 0;
-        boolean  isNegative = true;
-        if(chars[0] == '-' ){
-            isNegative = false;
-        }
-        if(isNumber(chars[0])){
-            result += (int) (chars[0] - '0');
-        }
-        int index =  1;
-        loop:while(index < chars.length ){
-            // if '.' then ignore and continue the loop
-            if(chars[index] == '.') {
-                index++;
-                continue loop;
-            }
+        boolean  isPositive = true;
+        // if the first char is digit then add into the result 
+        if(isNumber(chars[0])) result = ( result * 10 ) + (int) (chars[0] - '0');   
+        
+        // when char is not digit and char is one of '-' or '+' set non-positive or positive number 
+        if(!isNumber(chars[0]) && (chars[0] == '-' || chars[0] == '+')) isPositive = chars[0] == '+'; 
 
+        //  last case not digit and not one of '-' or '+' then return 0 
+        if(!isNumber(chars[0]) && !(chars[0] == '-' || chars[0] == '+')) return 0;
+
+        int index =  1;
+
+        
+        while(index < chars.length && isNumber(chars[index]) ){
             // check value if non-digit then increase the value if not break
-            if(isNumber(chars[index])){
                 int digit = chars[index] - '0';
                 result = ( result * 10 ) + digit;
                 index++;
-                if(result > Integer.MAX_VALUE && isNegative) return Integer.MAX_VALUE;
-                if(result > Integer.MAX_VALUE && !isNegative) return Integer.MIN_VALUE;
-
-            }
-            else{
-                break loop;
-            }
+                // check value bigger or smaller than MIN MAX value of Integer 
+                if(result > Integer.MAX_VALUE && isPositive) return Integer.MAX_VALUE;
+                if(result > Integer.MAX_VALUE && !isPositive) return Integer.MIN_VALUE;
         }
 
-
-    return (int) (isNegative ? result : -1 * result); 
+    return (int) (isPositive ? result : -1 * result); 
     }
     private boolean isNumber(char c){
         return c >= '0' && c <= '9';
@@ -43,7 +37,7 @@ public class Solution{
     
 
     public static void main(String[] args) {
-        String string = "         +-3.a14159";
+        String string = "-42";
         Solution solution = new Solution();
         System.out.println(solution.myAtoi(string));
     }
