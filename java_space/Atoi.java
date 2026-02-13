@@ -1,4 +1,4 @@
-public class Solution{
+public class Atoi{
 
 
     // Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer
@@ -38,7 +38,7 @@ public class Solution{
 
     public static void main(String[] args) {
         String string = "-42";
-        Solution solution = new Solution();
-        System.out.println(solution.myAtoi(string));
+        Atoi Atoi = new Atoi();
+        System.out.println(Atoi.myAtoi(string));
     }
 }   

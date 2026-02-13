@@ -1,7 +1,7 @@
 public class longestPalindrome {
 private int lo, maxLen;
 
-public String longestPalindrome(String s) {
+public String longestPalindromeX(String s) {
 	int len = s.length();
 	if (len < 2)
 		return s;
