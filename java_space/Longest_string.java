@@ -72,7 +72,6 @@ public class Node {
     }
     // functinc to remove nodes from start to given character
     public void removeUptoChar( Node node) {
-    if(this == null) return ;
     if(this.next == null) return ;
     if(this.data != node.data){
         this.data = this.next.data;
@@ -91,7 +90,6 @@ public class Node {
     }
     //functionc to get length of Node 
     public int length() {
-        if(this == null) return 0;
         return 1 + (this.next == null ? 0 : this.next.length());
     }
 
