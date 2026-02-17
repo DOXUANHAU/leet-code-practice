@@ -21,14 +21,20 @@ public class ContainerWithMostWater {
     // 
     public int maxArea(int[] height){
         if(height.length == 0) return 0;
-        int i =0,j = height.length -1 , result = 0;
+        int i =0,j = height.length -1 , result = 0 ,area ,h;
         while(i <= j){
-        int area = height[i] >= height[j] ? height[j] * (j - i) : height[i] * ( j -i);
-        if(result <= area) result = area;
-        if(height[i] >= height[j]) {
-            j--;
-        }else{i++;
-        }
+        // calculate height status
+        h = (height[i] <= height[j]) ? height[i] : height[j];
+        // calculate value of area by min value at pointer and replace value index min
+        area = h * (j -i );
+        // reassign value for eresult 
+        result = (result <= area) ? area : result;
+
+        //  check if height at i < height at j then continues move 
+        while(i <= j && height[i] <=  h) i++;
+        // check the same logic as the line above
+        while (i <= j && height[j] <= h )  j--;
+
         }
         return result;
     }
