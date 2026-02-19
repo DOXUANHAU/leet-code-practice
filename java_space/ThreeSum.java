@@ -1,12 +1,16 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 public class ThreeSum{
     public List<List<Integer>> threeSum(int[] nums){
         List<List<Integer>> result = new ArrayList<>();
-        
 
-        backtrack(nums, 3, 0, new ArrayList<>(), result);
+        Arrays.sort(nums);
+        
+        backtrack(nums, 3, 0, new ArrayList<>() , result);
 
 
 
@@ -19,15 +23,15 @@ public class ThreeSum{
 
         if (temp.size() == k && checkGivenValue(temp.get(0), temp.get(1),temp.get(2))) {
 
-            if(checkContainInMotherList(result,temp)) return ;
-
-
-
             result.add(new ArrayList<>(temp));
             return;
         }
 
         for (int i = start; i < arr.length; i++) {
+            if( i > start && arr[i] == arr[i-1]) continue;
+
+
+
             temp.add(arr[i]);              // chọn
             backtrack(arr, k, i + 1, temp, result);  // đi tiếp
             temp.remove(temp.size() - 1);  // quay lui
@@ -38,20 +42,13 @@ public class ThreeSum{
         return num1 + num2 + num3 == 0;
     }
 
-    private boolean checkContainInMotherList(List<List<Integer>> motherList , List<Integer> child){
-        for (int i = 0; i < motherList.size(); i++) {
-
-            List<Integer> value = motherList.get(i);
-            if(value.contains(child.get(0)) && value.contains(child.get(1)) && value.contains(child.get(2))) return true;
-            
-        }
-        return false;
-    }
+    
     public static void main(String[] args) {
         int[] nums ={-1,0,1,2,-1,-4};
+        int[] nums2 = {34,55,79,28,46,33,2,48,31,-3,84,71,52,-3,93,15,21,-43,57,-6,86,56,94,74,83,-14,28,-66,46,-49,62,-11,43,65,77,12,47,61,26,1,13,29,55,-82,76,26,15,-29,36,-29,10,-70,69,17,49};
 
         ThreeSum th = new ThreeSum();
-        System.out.println(th.threeSum(nums));
+        System.out.println(th.threeSum(nums2));
     }
 
 }
