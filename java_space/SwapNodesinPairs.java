@@ -1,4 +1,3 @@
-import java.util.List;
 
 public class SwapNodesinPairs{
      public static class ListNode {

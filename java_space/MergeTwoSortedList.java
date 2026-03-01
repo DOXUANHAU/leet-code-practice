@@ -1,4 +1,15 @@
+
 public class MergeTwoSortedList{
+public static class ListNode {
+    int val;
+    ListNode next;
+    ListNode() {}
+    ListNode(int val) { this.val = val; }
+    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+}
+ 
+
+
      public String nodePrettyPrint(ListNode node){
         String result = "";
         if (node == null) {
@@ -12,7 +23,6 @@ public class MergeTwoSortedList{
 
     if(list1== null) return list2;
     if(list2 == null) return list1;
-    if(list1 == null && list2 == null) return null;
 
     // check current value 
     if (list1.val < list2.val) {
