@@ -1,22 +1,17 @@
 public class RemoveDuplucatesFromSortedArray{
     public int removeDuplicates(int[] arr ){
         if(arr.length == 0 || arr == null ) return 0;
-
-        int dupliCate = arr[0];
+        // init the first pointer
         int index = 1;
+
+        // loop throught the arr 
         for (int i = 1; i < arr.length; i++) {
-            if(arr[i] != dupliCate){
-                dupliCate = arr[i];
-                arr[index] = dupliCate;
+            // check if arr[i] != arr[index - 1] 
+            if(arr[i] != arr[index-1]){
+                arr[index] = arr[i];
                 index++;
             }
         }
-        
-        // for (int i = 0; i < arr.length; i++) {
-        //     System.out.print(arr[i] + ":");
-        // }
-
-
         return index;
     }
     public static void main(String[] args) {
