@@ -2,16 +2,21 @@ public class RemoveDuplucatesFromSortedArray{
     public int removeDuplicates(int[] arr ){
         if(arr.length == 0 || arr == null ) return 0;
 
-
         int dupliCate = arr[0];
         int index = 1;
         for (int i = 1; i < arr.length; i++) {
             if(arr[i] != dupliCate){
                 dupliCate = arr[i];
+                arr[index] = dupliCate;
                 index++;
             }
         }
         
+        // for (int i = 0; i < arr.length; i++) {
+        //     System.out.print(arr[i] + ":");
+        // }
+
+
         return index;
     }
     public static void main(String[] args) {
@@ -19,4 +24,4 @@ public class RemoveDuplucatesFromSortedArray{
         RemoveDuplucatesFromSortedArray remove = new RemoveDuplucatesFromSortedArray();
         System.out.println(remove.removeDuplicates(nums));
     }
-}s
+}
