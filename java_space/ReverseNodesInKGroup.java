@@ -17,9 +17,9 @@ public class ReverseNodesInKGroup{
             if(tail == null) return head;
         }
       
-      
- ListNode prev = reverseKGroup(tail.next, k);
-    ListNode curr = head;
+        // dont understand this function 
+     ListNode prev = reverseKGroup(tail.next, k);
+     ListNode curr = head;
 
     for (int i = 0; i < k; i++) {
         ListNode next = curr.next;
@@ -32,18 +32,10 @@ public class ReverseNodesInKGroup{
     }
     
 public static void main(String[] args) {
-    ListNode head = new ListNode(1);
-    head.next = new ListNode(2);
-    head.next.next = new ListNode(3);
-    head.next.next.next = new ListNode(4);
-    head.next.next.next.next = new ListNode(5);
-    head.next.next.next.next.next = new ListNode(6);
-    head.next.next.next.next.next.next = new ListNode(7);
-    head.next.next.next.next.next.next.next = new ListNode(8);
-    head.next.next.next.next.next.next.next.next = new ListNode(9);
+    ListNode head = new ListNode(1,new ListNode(2,new ListNode(3, new ListNode(4, new ListNode(5)))));
 
     ReverseNodesInKGroup solution = new ReverseNodesInKGroup();
-    ListNode result = solution.reverseKGroup(head, 3);
+    ListNode result = solution.reverseKGroup(head, 2);
 // print  
     while (result != null) {
         System.out.print(result.val + " ");
