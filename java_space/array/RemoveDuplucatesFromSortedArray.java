@@ -1,3 +1,4 @@
+package array;
 public class RemoveDuplucatesFromSortedArray{
     public int removeDuplicates(int[] arr ){
         if(arr.length == 0 || arr == null ) return 0;
