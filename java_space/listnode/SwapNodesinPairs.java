@@ -1,3 +1,4 @@
+package listnode;
 
 public class SwapNodesinPairs{
      public static class ListNode {

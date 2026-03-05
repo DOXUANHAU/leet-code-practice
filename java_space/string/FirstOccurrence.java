@@ -1,3 +1,4 @@
+package string;
 public class FirstOccurrence {
 
       public int strStr(String haystack, String needle) {

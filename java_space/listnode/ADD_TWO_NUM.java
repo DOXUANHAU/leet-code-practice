@@ -1,3 +1,4 @@
+package listnode;
 public class ADD_TWO_NUM {
 
     
@@ -21,7 +22,6 @@ public class ADD_TWO_NUM {
         if(Node_1.next == null && Node_2.next == null ) return sum >= 10 ? new ListNode(digit , new ListNode(carry)) : new ListNode(digit); 
 
 
-        // check for null next nodes
         if(Node_1.next == null ) return new ListNode(digit,recursiveNodeAdd(new ListNode(0), Node_2.next , carry));
         if(Node_2.next == null ) return new ListNode(digit,recursiveNodeAdd( Node_1.next, new ListNode(0) , carry));
 

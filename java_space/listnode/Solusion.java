@@ -1,3 +1,5 @@
+package listnode;
+
 public class Solusion {
     int val;
     Solusion next;
@@ -23,7 +25,6 @@ class Solution {
         // delete 
         slow.next = slow.next.next;
 
-        // return head cause  slow and head are reference to one object in heap 
         return head;
     }
 

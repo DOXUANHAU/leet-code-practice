@@ -1,3 +1,4 @@
+package listnode;
 
 class Solution {
       public class ListNode {
