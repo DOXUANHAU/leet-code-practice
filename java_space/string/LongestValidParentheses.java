@@ -7,7 +7,6 @@ public class LongestValidParentheses {
         if(s.length() == 0 || s.length() == 1 || s == null ) return 0;
        Stack<Character> stack = new Stack<>();
         int max = 0;
-        int tempMax = 0;
         stack.push(s.charAt(0));
         for (int i = 1; i < s.length() ; i++) {
             if(s.charAt(i) == '(') stack.add(s.charAt(i));

@@ -1,3 +1,5 @@
+package string;
+
 class CountAndSay {
     public String countAndSay(int n) {
         String s = "1";
