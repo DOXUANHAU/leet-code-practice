@@ -45,7 +45,7 @@ public class FirstLastElement{
         return new int[] {left,right};
     }
     public static void main(String[] args) {
-        int[] arr = new int[] {1,2,3,4,5,6,7,7,7,8,9,9,9};
+        // int[] arr = new int[] {1,2,3,4,5,6,7,7,7,8,9,9,9};
         int nums[] = new int[] {1,1};
         FirstLastElement firstLastElement = new FirstLastElement();
         System.out.println(firstLastElement.searchRange(nums, 1));
