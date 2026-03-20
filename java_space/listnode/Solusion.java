@@ -1,16 +1,9 @@
 package listnode;
+import node.*;
 
-public class Solusion {
-    int val;
-    Solusion next;
-    Solusion() {}
-    Solusion(int val) { this.val = val; }
-    Solusion(int val, Solusion next) { this.val = val; this.next = next; }
-}
- 
 class Solution {
-       public Solusion removeNthFromEnd(Solusion head, int n) {
-        Solusion fast = head, slow = head;
+       public Node removeNthFromEnd(Node head, int n) {
+        Node fast = head, slow = head;
         // move to n from head 
         for (int i = 0; i < n; i++) fast = fast.next; 
 
@@ -28,7 +21,11 @@ class Solution {
         return head;
     }
 
-    public String nodePrettyPrint(Solusion node){
+    /**
+     * @param node
+     * @return
+     */
+    public String nodePrettyPrint(Node node){
         String result = "";
         if (node == null) {
             return result;
@@ -37,11 +34,11 @@ class Solution {
         return result += node.val +"->" + nodePrettyPrint(node.next);
     }
     public static void main(String[] args) {
-        Solusion node = new Solusion(1,new Solusion(2,new Solusion(3,new Solusion(4, new Solusion(5)))));
+        Node node = new Node(1,new Node(2,new Node(3,new Node(4, new Node(5)))));
         
         Solution solution = new Solution();
 
-        Solusion del = solution.removeNthFromEnd(node, 2) ;
+        Node del = solution.removeNthFromEnd(node, 2) ;
         System.out.println(solution.nodePrettyPrint(del));
     }
 }
