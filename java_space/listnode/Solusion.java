@@ -1,7 +1,7 @@
 package listnode;
 import node.*;
 
-class Solution {
+class Solusion {
        public Node removeNthFromEnd(Node head, int n) {
         Node fast = head, slow = head;
         // move to n from head 
@@ -36,7 +36,7 @@ class Solution {
     public static void main(String[] args) {
         Node node = new Node(1,new Node(2,new Node(3,new Node(4, new Node(5)))));
         
-        Solution solution = new Solution();
+        Solusion solution = new Solusion();
 
         Node del = solution.removeNthFromEnd(node, 2) ;
         System.out.println(solution.nodePrettyPrint(del));

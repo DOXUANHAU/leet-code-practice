@@ -1,6 +1,6 @@
 package string ;
 
-class LengthOfLastWord {
+public class LengthofLastWord {
      public int lengthOfLastWord(String s) {
         if(s == "" || s == null  ) return 0;
         if(s.trim().length() == 1) return 1;
