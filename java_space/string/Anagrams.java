@@ -2,31 +2,21 @@ package string;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Anagrams {
      public List<List<String>> groupAnagrams(String[] strs) {
-        Hashtable<String,List<Integer>> table = new Hashtable<>();
-        for (int i = 0; i < strs.length; i++) {
-     char[] arr = strs[i].toCharArray();
+        Map<String,List<String>> table = new HashMap<>();
+        for (String s : strs) {
+        char[] arr = s.toCharArray();
         Arrays.sort(arr);
-     String key = new String(arr);
-        table.computeIfAbsent(key, k -> new ArrayList<>()).add(i);
+        String key = new String(arr);
+        table.computeIfAbsent(key, k -> new ArrayList<>()).add(s);
 
         }
-
-// Iterating
-        List<List<String>> result = new ArrayList<>();
-        for (String key : table.keySet()) {
-            List<String> holder = new ArrayList<>();
-            for (Integer index : table.get(key)) {
-                holder.add(strs[index]);
-            }
-            result.add(holder);
-        }
-
-        return result;
+        return new ArrayList<>(table.values());
         
     }
 
