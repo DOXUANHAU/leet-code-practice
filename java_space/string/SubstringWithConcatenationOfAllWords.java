@@ -15,7 +15,7 @@ class SubstringWithConcatenationOfAllWords {
     int wordCount = words.length;
 
     // Tổng độ dài cần match
-    int totalLen = wordLen * wordCount;
+    // int totalLen = wordLen * wordCount;
 
     // Map lưu số lần xuất hiện của mỗi word trong words
     Map<String, Integer> wordMap = new HashMap<>();
