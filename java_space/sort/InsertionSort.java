@@ -1,6 +1,8 @@
 package sort;
 
 public class InsertionSort {
+
+    // check from 1 to n-1, if the current element is smaller than the previous one, then we need to insert it into the correct position in the sorted part of the array (the left side)
     public void insertionSort(int[] arr) {
 
         // Duyệt từ phần tử thứ 2 (index = 1)
@@ -17,12 +19,14 @@ public class InsertionSort {
             while (j >= 0 && arr[j] > key) {
                 arr[j + 1] = arr[j]; // dịch phần tử sang phải
                 j--; // lùi lại để tiếp tục so sánh
-            }
+            }   
 
             // Sau khi tìm được vị trí phù hợp
             // chèn key vào
             arr[j + 1] = key;
         }
+
+
 }
 
 }
