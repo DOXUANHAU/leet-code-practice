@@ -34,11 +34,11 @@ class Solusion {
         return result += ListNode.val +"->" + ListNodePrettyPrint(ListNode.next);
     }
     public static void main(String[] args) {
-        ListNode ListNode = new ListNode(1,new ListNode(2,new ListNode(3,new ListNode(4, new ListNode(5)))));
+        ListNode listNode = new ListNode(1,new ListNode(2,new ListNode(3,new ListNode(4, new ListNode(5)))));
         
         Solusion solution = new Solusion();
 
-        ListNode del = solution.removeNthFromEnd(node, 2) ;
-        System.out.println(solution.nodePrettyPrint(del));
+        ListNode del = solution.removeNthFromEnd(listNode, 2) ;
+        System.out.println(solution.ListNodePrettyPrint(listNode));
     }
 }

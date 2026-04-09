@@ -9,7 +9,7 @@ public class InsertionSortList {
             ListNode prev = dummy;
 
             // find the correct location 
-            while(prev.next != null || prev.next.val < current.val){
+            while(prev.next != null && prev.next.val < current.val){
                 prev = prev.next;
             }
 
@@ -21,7 +21,6 @@ public class InsertionSortList {
     current = nextTemp; // move to next node
             
         }
-
 
         return dummy.next ;
     }
